@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ETI ART RESIDENCY 2025 · Mid-Mod A4 认知记忆手册</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Newsreader:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --mm-mustard: #D8AA28;
+      --mm-olive: #989D34;
+      --mm-blue: #86CBE6;
+      --mm-pink: #F5A8B8;
+      --mm-terracotta: #A43926;
+      --mm-cream: #FAF7F0;
+      --mm-dark: #1A1A1A;
+      --mm-white: #FFFFFF;
+      --mm-card-border: #202020;
+      --mm-subtle-gray: #EAE6DC;
+      --mm-text-muted: #5A5852;
+      
+      /* Refined, rounded, highly legible geometric display font */
+      --font-display: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --font-serif: 'Newsreader', "Songti SC", Georgia, serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: #E7E3D8;
+      font-family: var(--font-body);
+      color: var(--mm-dark);
+      padding: 24px 0 60px 0;
+      line-height: 1.5;
+    }
+
+    .action-bar {
+      position: sticky;
+      top: 12px;
+      z-index: 9999;
+      width: 210mm;
+      max-width: 95vw;
+      margin: 0 auto 16px auto;
+      background: var(--mm-dark);
+      color: var(--mm-cream);
+      padding: 10px 18px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.15);
+      font-size: 13px;
+    }
+
+    .action-bar .tips {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+    }
+
+    .action-bar .tips span.badge {
+      background: var(--mm-mustard);
+      color: var(--mm-dark);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .action-bar .btn-print {
+      background: var(--mm-blue);
+      color: var(--mm-dark);
+      border: none;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .action-bar .btn-print:hover {
+      background: #70BDDA;
+      transform: translateY(-1px);
+    }
+
+    .page {
+      width: 210mm;
+      height: 297mm;
+      min-height: 297mm;
+      max-height: 297mm;
+      margin: 0 auto 28px auto;
+      background: var(--mm-cream);
+      border: 2px solid var(--mm-card-border);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      page-break-after: always;
+      break-after: page;
+      page-break-inside: avoid;
+    }
+
+    .page-header {
+      height: 24mm;
+      border-bottom: 2px solid var(--mm-card-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16mm;
+      background: var(--mm-cream);
+      flex-shrink: 0;
+    }
+
+    .meta-tag {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--mm-dark);
+    }
+
+    .meta-sub {
+      font-size: 10px;
+      color: var(--mm-text-muted);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .page-footer {
+      height: 14mm;
+      border-top: 2px solid var(--mm-card-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16mm;
+      background: var(--mm-cream);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .page-body {
+      flex: 1;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    [contenteditable="true"] {
+      outline: none;
+      transition: background 0.15s ease;
+      cursor: text;
+    }
+    [contenteditable="true"]:hover {
+      background: rgba(216, 170, 40, 0.15);
+      border-radius: 2px;
+    }
+    [contenteditable="true"]:focus {
+      background: rgba(134, 203, 230, 0.25);
+      border-radius: 2px;
+    }
+
+    .cover-hero {
+      background: var(--mm-mustard);
+      border-bottom: 2px solid var(--mm-card-border);
+      padding: 16mm 16mm 12mm 16mm;
+      position: relative;
+    }
+
+    .cover-hero .badge-topic {
+      display: inline-block;
+      background: var(--mm-dark);
+      color: var(--mm-cream);
+      padding: 4px 12px;
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6mm;
+      border-radius: 2px;
+    }
+
+    .cover-title {
+      font-family: var(--font-display);
+      font-size: 28pt;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--mm-dark);
+      margin-bottom: 5mm;
+      word-break: break-word;
+    }
+
+    .cover-subtitle {
+      font-family: var(--font-serif);
+      font-size: 13pt;
+      color: #2E2B20;
+      line-height: 1.4;
+      max-width: 90%;
+    }
+
+    .tracker-bar {
+      background: var(--mm-cream);
+      border-bottom: 2px solid var(--mm-card-border);
+      padding: 5mm 16mm;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .tracker-label {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .tracker-pills {
+      display: flex;
+      gap: 8px;
+    }
+
+    .tracker-pill {
+      border: 1.5px solid var(--mm-card-border);
+      background: var(--mm-white);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tracker-box {
+      width: 11px;
+      height: 11px;
+      border: 1.5px solid var(--mm-dark);
+      display: inline-block;
+      background: #fff;
+    }
+
+    .overview-chunks {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border-bottom: 2px solid var(--mm-card-border);
+    }
+
+    .overview-row {
+      flex: 1;
+      display: flex;
+      border-bottom: 2px solid var(--mm-card-border);
+      position: relative;
+    }
+    .overview-row:last-child {
+      border-bottom: none;
+    }
+
+    .overview-row.row-blue { background: var(--mm-blue); }
+    .overview-row.row-olive { background: var(--mm-olive); color: var(--mm-white); }
+    .overview-row.row-pink { background: var(--mm-pink); }
+    .overview-row.row-mustard { background: var(--mm-mustard); }
+    .overview-row.row-terracotta { background: var(--mm-terracotta); color: var(--mm-white); }
+
+    .overview-content {
+      flex: 1;
+      padding: 6mm 16mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .overview-tag {
+      font-family: var(--font-serif);
+      font-size: 16pt;
+      font-weight: 600;
+      margin-bottom: 2mm;
+    }
+
+    .overview-summary {
+      font-size: 10.5pt;
+      font-weight: 500;
+      line-height: 1.35;
+      opacity: 0.95;
+    }
+
+    .overview-num {
+      width: 32mm;
+      border-left: 2px solid var(--mm-card-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 50pt;
+      font-weight: 800;
+      line-height: 1;
+      background: rgba(255,255,255,0.15);
+    }
+
+    .cover-bottom-essence {
+      padding: 6mm 16mm;
+      background: var(--mm-cream);
+      display: flex;
+      align-items: center;
+      gap: 12mm;
+    }
+    .essence-title {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .essence-text {
+      font-family: var(--font-serif);
+      font-size: 12pt;
+      font-style: italic;
+      color: var(--mm-dark);
+    }
+
+    .chunk-header-block {
+      height: 44mm;
+      border-bottom: 2px solid var(--mm-card-border);
+      display: flex;
+    }
+
+    .chunk-header-left {
+      flex: 1;
+      padding: 6mm 16mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 2px solid var(--mm-card-border);
+    }
+
+    .chunk-part-title {
+      font-family: var(--font-serif);
+      font-size: 16pt;
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 1.5mm;
+      color: rgba(0,0,0,0.75);
+    }
+
+    .chunk-name {
+      font-family: var(--font-display);
+      font-size: 17pt;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: var(--mm-dark);
+    }
+
+    .chunk-header-num {
+      width: 44mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 58pt;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--mm-dark);
+      position: relative;
+    }
+
+    .geom-blue { background: var(--mm-blue); }
+    .geom-olive { background: var(--mm-olive); color: var(--mm-white) !important; }
+    .geom-pink { background: var(--mm-pink); }
+    .geom-mustard { background: var(--mm-mustard); }
+    .geom-terracotta { background: var(--mm-terracotta); color: var(--mm-white) !important; }
+
+    .recall-prompt-bar {
+      background: var(--mm-dark);
+      color: var(--mm-cream);
+      padding: 6mm 16mm;
+      border-bottom: 2px solid var(--mm-card-border);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .recall-prompt-bar .cue-tag {
+      background: var(--mm-mustard);
+      color: var(--mm-dark);
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      padding: 3px 8px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+      margin-top: 2px;
+      border-radius: 2px;
+    }
+
+    .recall-prompt-bar .cue-question {
+      font-size: 12pt;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .chunk-main-grid {
+      height: 98mm;
+      display: flex;
+      border-bottom: 2px solid var(--mm-card-border);
+    }
+
+    .chunk-theory-col {
+      flex: 1.25;
+      padding: 8mm 16mm;
+      border-right: 2px solid var(--mm-card-border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--mm-white);
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--mm-text-muted);
+      margin-bottom: 3mm;
+    }
+
+    .theory-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 3mm;
+    }
+
+    .theory-points li {
+      font-size: 10pt;
+      line-height: 1.38;
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .theory-points li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 7px;
+      height: 7px;
+      background: var(--mm-dark);
+      border-radius: 1px;
+    }
+
+    .theory-points strong {
+      color: var(--mm-dark);
+      font-weight: 700;
+      background: rgba(216, 170, 40, 0.2);
+      padding: 1px 4px;
+      border-radius: 2px;
+    }
+
+    .chunk-hook-col {
+      flex: 0.95;
+      background: var(--mm-cream);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .hook-graphic-box {
+      flex: 1;
+      padding: 6mm 10mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      border-bottom: 2px solid var(--mm-card-border);
+    }
+
+    .graphic-cutout-arc {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28mm;
+      height: 28mm;
+      border-radius: 50% 0 0 50%;
+      background: var(--mm-olive);
+      opacity: 0.85;
+      border-left: 2px solid var(--mm-card-border);
+      border-top: 2px solid var(--mm-card-border);
+      border-bottom: 2px solid var(--mm-card-border);
+      pointer-events: none;
+    }
+
+    .graphic-cutout-triangle {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-bottom: 32mm solid var(--mm-terracotta);
+      border-right: 32mm solid transparent;
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .hook-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hook-formula {
+      font-family: var(--font-display);
+      font-size: 12.5pt;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      color: var(--mm-dark);
+      margin-bottom: 2.5mm;
+    }
+
+    .hook-analogy {
+      font-family: var(--font-serif);
+      font-size: 10pt;
+      line-height: 1.4;
+      color: var(--mm-text-muted);
+    }
+
+    .hook-keyword-pills {
+      padding: 4mm 10mm;
+      background: var(--mm-white);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .kw-pill {
+      border: 1px solid var(--mm-card-border);
+      background: var(--mm-cream);
+      padding: 2px 8px;
+      font-size: 9pt;
+      font-weight: 700;
+      border-radius: 3px;
+    }
+
+    .chunk-practice-zone {
+      flex: 1;
+      padding: 6mm 16mm;
+      background: #FDFBF7;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .practice-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2.5mm;
+    }
+
+    .practice-title {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--mm-dark);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .practice-prompt-text {
+      font-size: 10pt;
+      font-weight: 600;
+      color: #3A3832;
+      margin-bottom: 2.5mm;
+    }
+
+    .note-grid-canvas {
+      flex: 1;
+      border: 1.5px dashed #B8B3A4;
+      border-radius: 4px;
+      background-color: #FFFFFF;
+      background-image: radial-gradient(#B8B3A4 1.2px, transparent 1.2px);
+      background-size: 6mm 6mm;
+      padding: 4mm 6mm;
+      position: relative;
+      font-family: var(--font-serif);
+      font-size: 11pt;
+      color: #2F3542;
+    }
+
+    .note-grid-placeholder {
+      color: #9C988D;
+      font-size: 9.5pt;
+      font-style: italic;
+      user-select: none;
+    }
+
+    .final-hero {
+      background: var(--mm-terracotta);
+      color: var(--mm-white);
+      padding: 10mm 16mm;
+      border-bottom: 2px solid var(--mm-card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .final-hero h2 {
+      font-family: var(--font-display);
+      font-size: 21pt;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+    }
+
+    .final-hero p {
+      font-size: 10.5pt;
+      opacity: 0.9;
+    }
+
+    .matrix-section {
+      padding: 7mm 16mm;
+      border-bottom: 2px solid var(--mm-card-border);
+      background: var(--mm-white);
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 2px solid var(--mm-card-border);
+      font-size: 9.5pt;
+    }
+
+    .matrix-table th {
+      background: var(--mm-dark);
+      color: var(--mm-cream);
+      font-family: var(--font-display);
+      font-size: 9pt;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      border: 1px solid var(--mm-card-border);
+      text-align: left;
+    }
+
+    .matrix-table td {
+      padding: 7px 10px;
+      border: 1px solid var(--mm-card-border);
+      vertical-align: top;
+      line-height: 1.35;
+    }
+
+    .matrix-table tr:nth-child(even) td {
+      background: #FDFCF7;
+    }
+
+    .blind-recall-section {
+      flex: 1;
+      padding: 7mm 16mm;
+      background: var(--mm-cream);
+      display: flex;
+      flex-direction: column;
+      border-bottom: 2px solid var(--mm-card-border);
+    }
+
+    .checklist-items {
+      display: flex;
+      flex-direction: column;
+      gap: 3mm;
+      margin-top: 3mm;
+    }
+
+    .checklist-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--mm-white);
+      border: 1.5px solid var(--mm-card-border);
+      padding: 6px 12px;
+      border-radius: 4px;
+    }
+
+    .check-box {
+      width: 15px;
+      height: 15px;
+      border: 2px solid var(--mm-dark);
+      border-radius: 2px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .check-content {
+      font-size: 10pt;
+      line-height: 1.35;
+    }
+
+    .check-cue {
+      font-weight: 700;
+      color: var(--mm-dark);
+    }
+
+    .pitfall-box {
+      margin-top: 4mm;
+      background: #FFE8E5;
+      border: 1.5px solid var(--mm-terracotta);
+      border-left: 6px solid var(--mm-terracotta);
+      padding: 6px 12px;
+      font-size: 9.5pt;
+      line-height: 1.35;
+      border-radius: 3px;
+    }
+
+    .pitfall-box strong {
+      color: var(--mm-terracotta);
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+        margin: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      .page {
+        margin: 0;
+        border: none;
+        box-shadow: none;
+        width: 210mm;
+        height: 297mm;
+        min-height: 297mm;
+        max-height: 297mm;
+        page-break-after: always;
+        break-after: page;
+        page-break-inside: avoid;
+        box-sizing: border-box;
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+    }
+
+    @media screen and (max-width: 860px) {
+      body {
+        padding: 8px;
+      }
+      .page {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        max-height: none;
+        margin-bottom: 20px;
+      }
+      .chunk-header-num {
+        font-size: 40pt;
+        width: 24mm;
+      }
+      .chunk-main-grid {
+        height: auto;
+        flex-direction: column;
+      }
+      .chunk-theory-col {
+        border-right: none;
+        border-bottom: 2px solid var(--mm-card-border);
+      }
+      .note-grid-canvas {
+        min-height: 60mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Print & Edit Toolbar -->
+  <div class="action-bar no-print">
+    <div class="tips">
+      <span class="badge">MID-MOD 记忆手册</span>
+      <span>点击任意文字即可自由编辑 · 原英文为主体记忆内容 · 支持双面打印与实体书写</span>
+    </div>
+    <button class="btn-print" onclick="window.print()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+      打印 / 导出 PDF (A4)
+    </button>
+  </div>
+
+  <!-- =========================================================
+       PAGE 1: COVER & OVERVIEW
+       ========================================================= -->
+  <div class="page" id="page-1">
+    <div class="page-header">
+      <div class="meta-tag" contenteditable="true">COGNITIVE CHUNKING · ACTIVE RECALL</div>
+      <div class="meta-sub" contenteditable="true">RESIDENCY-ETI-2025</div>
+    </div>
+
+    <div class="page-body">
+      <!-- Hero Deck Title -->
+      <div class="cover-hero">
+        <div class="badge-topic" contenteditable="true">STAR CASE STUDY · 行为面试与项目管理 (原英文记忆)</div>
+        <h1 class="cover-title" contenteditable="true">ETI ART RESIDENCY 2025</h1>
+        <p class="cover-subtitle" contenteditable="true">Louhang Art Hill Project · Artist Residency Coordination &amp; Project Administration</p>
+      </div>
+
+      <!-- Spaced Repetition Tracker -->
+      <div class="tracker-bar">
+        <div class="tracker-label">复习轨迹打卡 / EBBINGHAUS INTERVALS</div>
+        <div class="tracker-pills">
+          <div class="tracker-pill"><span class="tracker-box"></span> Day 1</div>
+          <div class="tracker-pill"><span class="tracker-box"></span> Day 2</div>
+          <div class="tracker-pill"><span class="tracker-box"></span> Day 4</div>
+          <div class="tracker-pill"><span class="tracker-box"></span> Day 7</div>
+          <div class="tracker-pill"><span class="tracker-box"></span> Day 15</div>
+          <div class="tracker-pill"><span class="tracker-box"></span> Day 30</div>
+        </div>
+      </div>
+
+      <!-- 3-Part Overview Bars -->
+      <div class="overview-chunks">
+        
+        <div class="overview-row row-blue">
+          <div class="overview-content">
+            <div class="overview-tag" contenteditable="true">Part one · Foundation &amp; Local Connection</div>
+            <div class="overview-summary" contenteditable="true">Pre-arrival logistics (needs, materials, housing, transport), neighborhood visits, and discovering key material at a local veneer factory while recruiting workshop participants.</div>
+          </div>
+          <div class="overview-num">1</div>
+        </div>
+        
+        <div class="overview-row row-olive">
+          <div class="overview-content">
+            <div class="overview-tag" contenteditable="true">Part two · Delivery &amp; Coordination</div>
+            <div class="overview-summary" contenteditable="true">Delivered a solo exhibition as part of the art fair by synchronizing a 6-party stakeholder network and managing materials, staff, and schedules across 7 days.</div>
+          </div>
+          <div class="overview-num">2</div>
+        </div>
+        
+        <div class="overview-row row-pink">
+          <div class="overview-content">
+            <div class="overview-tag" contenteditable="true">Part three · System &amp; Administration</div>
+            <div class="overview-summary" contenteditable="true">Established a project administration system using shared spreadsheets tracking Done, Next, Owner, and Deadlines to maintain cross-functional alignment and order.</div>
+          </div>
+          <div class="overview-num">3</div>
+        </div>
+        
+      </div>
+
+      <!-- Core Essence Formula -->
+      <div class="cover-bottom-essence">
+        <div class="essence-title">一句话本质 / CORE HOOK</div>
+        <div class="essence-text" contenteditable="true">“Connect the artist&#x27;s ideas and needs with local resources and people; anchor multi-stakeholder chaos with shared spreadsheet clarity.”</div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>MEMORIZATION HANDBOOK</div>
+      <div>SHEET 01 / COVER & OVERVIEW</div>
+    </div>
+  </div>
+
+  
+  <!-- =========================================================
+       PAGE 2: CHUNK 1 DEEP-DIVE
+       ========================================================= -->
+  <div class="page" id="page-2">
+    <div class="page-header">
+      <div class="meta-tag" contenteditable="true">CHUNK 01 · Pre-arrival Logistics &amp; Material Discovery</div>
+      <div class="meta-sub" contenteditable="true">ACTIVE RECALL MODULE · SHEET 02</div>
+    </div>
+
+    <div class="page-body">
+      <!-- Chunk Header -->
+      <div class="chunk-header-block geom-blue">
+        <div class="chunk-header-left">
+          <div class="chunk-part-title" contenteditable="true">Part one · Foundation &amp; Local Connection</div>
+          <div class="chunk-name" contenteditable="true">Pre-arrival Logistics &amp; Material Discovery</div>
+        </div>
+        <div class="chunk-header-num">1</div>
+      </div>
+
+      <!-- Trigger Prompt Bar -->
+      <div class="recall-prompt-bar">
+        <span class="cue-tag">ACTIVE RECALL CUE / 主动回忆提问</span>
+        <div class="cue-question" contenteditable="true">What specific preparations did you make before Eti arrived, and how did you connect her artistic vision with local community materials and residents?</div>
+      </div>
+
+      <!-- Theory vs Hook Grid -->
+      <div class="chunk-main-grid">
+        <div class="chunk-theory-col">
+          <div>
+            <div class="section-eyebrow">认知要点与原句萃取 / COGNITIVE CHUNKS</div>
+            <ul class="theory-points">
+              <li contenteditable="true"><strong>Pre-arrival Logistics: </strong>Communicated about what she needed in advance; prepared materials and tools, booked accommodation based on preferences, and arranged airport-to-residency transport.</li><li contenteditable="true"><strong>Neighborhood Visits &amp; Veneer Factory: </strong>Accompanied her on neighborhood visits during the first few days; visited a local veneer factory where she found the main material for her work.</li><li contenteditable="true"><strong>Dual Recruitment for Collaborative Workshops: </strong>Met local residents and invited them to participate, while recruiting additional participants via social media to bridge artist ideas with local people.</li>
+            </ul>
+          </div>
+          <div style="font-size: 9.5pt; color: #7A766D; font-style: italic;" contenteditable="true">
+            * Tip: Cover the text above. Verbally recite Eti&#x27;s name, the project, and the veneer factory in complete English sentences.
+          </div>
+        </div>
+
+        <div class="chunk-hook-col">
+          <div class="hook-graphic-box">
+            <div class="graphic-cutout-arc"></div>
+            <div class="hook-content" style="padding-right: 28mm;">
+              <div class="section-eyebrow">记忆钩子与类比 / MNEMONIC & DUAL CODING</div>
+              <div class="hook-formula" contenteditable="true">“Prep Needs &amp; Tools, Scout Veneer, Invite Residents”</div>
+              <div class="hook-analogy" contenteditable="true">Like planting a tree: prepare the ground in advance (logistics), then help roots latch directly onto native soil (veneer factory &amp; local community).</div>
+            </div>
+          </div>
+          <div class="hook-keyword-pills">
+            <span class="kw-pill" contenteditable="true">#LouhangArtHill2025</span><span class="kw-pill" contenteditable="true">#IsraeliArtistEti</span><span class="kw-pill" contenteditable="true">#LocalVeneerFactory</span><span class="kw-pill" contenteditable="true">#CollaborativeWorkshops</span><span class="kw-pill" contenteditable="true">#BridgeArtistNeeds</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Handwriting & Practice Canvas -->
+      <div class="chunk-practice-zone">
+        <div class="practice-header">
+          <div class="practice-title">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            实体手写自测与原语言口述演练区 (VERBAL & HANDWRITING BLANK)
+          </div>
+          <div style="font-size: 9pt; color: #8F8B80;">建议用笔默写或口头复述</div>
+        </div>
+        <div class="practice-prompt-text" contenteditable="true">
+          Verbal Recall Challenge: Without looking above, write down the 4 pre-arrival logistical steps and the exact English sentence describing your core role:
+        </div>
+        <div class="note-grid-canvas" contenteditable="true">
+          <div class="note-grid-placeholder">Write your verbal recall notes here: (1) Pre-arrival 4 tasks... (2) Veneer factory visit... (3) Core role sentence: &#x27;My role was really to connect...&#x27;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>MEMORIZATION HANDBOOK</div>
+      <div>SHEET 02 / CHUNK 01</div>
+    </div>
+  </div>
+        
+  <!-- =========================================================
+       PAGE 3: CHUNK 2 DEEP-DIVE
+       ========================================================= -->
+  <div class="page" id="page-3">
+    <div class="page-header">
+      <div class="meta-tag" contenteditable="true">CHUNK 02 · Solo Exhibition Delivery &amp; Multi-Stakeholder Matrix</div>
+      <div class="meta-sub" contenteditable="true">ACTIVE RECALL MODULE · SHEET 03</div>
+    </div>
+
+    <div class="page-body">
+      <!-- Chunk Header -->
+      <div class="chunk-header-block geom-olive">
+        <div class="chunk-header-left">
+          <div class="chunk-part-title" contenteditable="true">Part two · Delivery &amp; Coordination</div>
+          <div class="chunk-name" contenteditable="true">Solo Exhibition Delivery &amp; Multi-Stakeholder Matrix</div>
+        </div>
+        <div class="chunk-header-num">2</div>
+      </div>
+
+      <!-- Trigger Prompt Bar -->
+      <div class="recall-prompt-bar">
+        <span class="cue-tag">ACTIVE RECALL CUE / 主动回忆提问</span>
+        <div class="cue-question" contenteditable="true">Who were the 6 stakeholders you coordinated to deliver the solo exhibition, and how did you manage the workshops and interviews during the 7-day art fair?</div>
+      </div>
+
+      <!-- Theory vs Hook Grid -->
+      <div class="chunk-main-grid">
+        <div class="chunk-theory-col">
+          <div>
+            <div class="section-eyebrow">认知要点与原句萃取 / COGNITIVE CHUNKS</div>
+            <ul class="theory-points">
+              <li contenteditable="true"><strong>6-Party Stakeholder Coordination: </strong>To deliver the exhibition, coordinated with: (1) Artist, (2) Visual Designer, (3) Installation Staff, (4) Community Volunteers, (5) Art Fair Organizer, and (6) Local Culture &amp; Tourism Dept.</li><li contenteditable="true"><strong>7-Day Art Fair Operations: </strong>Managed several workshops and interviews during the seven-day art fair; coordinated materials, staff, and schedules for each workshop.</li><li contenteditable="true"><strong>Activity Promotion &amp; Engagement: </strong>Collected information about each activity for social promotion and participant recruitment, ensuring seamless audience engagement.</li>
+            </ul>
+          </div>
+          <div style="font-size: 9.5pt; color: #7A766D; font-style: italic;" contenteditable="true">
+            * Tip: Recite all 6 stakeholders aloud in English without pause. Ensure smooth transitions between each role.
+          </div>
+        </div>
+
+        <div class="chunk-hook-col">
+          <div class="hook-graphic-box">
+            <div class="graphic-cutout-triangle"></div>
+            <div class="hook-content" style="padding-left: 18mm;">
+              <div class="section-eyebrow">记忆钩子与类比 / MNEMONIC & DUAL CODING</div>
+              <div class="hook-formula" contenteditable="true">“6 Parties Aligned, 7 Days Anchored, Every Workshop Synced”</div>
+              <div class="hook-analogy" contenteditable="true">Like an orchestra conductor: the artist is the soloist, installation and design are the orchestra, culture/tourism sets the hall, and coordination keeps the tempo.</div>
+            </div>
+          </div>
+          <div class="hook-keyword-pills">
+            <span class="kw-pill" contenteditable="true">#SoloExhibition</span><span class="kw-pill" contenteditable="true">#6Stakeholders</span><span class="kw-pill" contenteditable="true">#SevenDayArtFair</span><span class="kw-pill" contenteditable="true">#WorkshopsAndInterviews</span><span class="kw-pill" contenteditable="true">#CultureAndTourism</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Handwriting & Practice Canvas -->
+      <div class="chunk-practice-zone">
+        <div class="practice-header">
+          <div class="practice-title">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            实体手写自测与原语言口述演练区 (VERBAL & HANDWRITING BLANK)
+          </div>
+          <div style="font-size: 9pt; color: #8F8B80;">建议用笔默写或口头复述</div>
+        </div>
+        <div class="practice-prompt-text" contenteditable="true">
+          Verbal Recall Challenge: Draw the 6-stakeholder network from memory and list the 3 operational items coordinated for each workshop (m___, s___, s___):
+        </div>
+        <div class="note-grid-canvas" contenteditable="true">
+          <div class="note-grid-placeholder">Sketch the 6 stakeholders network here: Artist / Visual Designer / Installation Staff / Community Volunteers / Art Fair Organizer / Culture &amp; Tourism Dept...</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>MEMORIZATION HANDBOOK</div>
+      <div>SHEET 03 / CHUNK 02</div>
+    </div>
+  </div>
+        
+  <!-- =========================================================
+       PAGE 4: CHUNK 3 DEEP-DIVE
+       ========================================================= -->
+  <div class="page" id="page-4">
+    <div class="page-header">
+      <div class="meta-tag" contenteditable="true">CHUNK 03 · Shared Spreadsheet System &amp; Complexity Management</div>
+      <div class="meta-sub" contenteditable="true">ACTIVE RECALL MODULE · SHEET 04</div>
+    </div>
+
+    <div class="page-body">
+      <!-- Chunk Header -->
+      <div class="chunk-header-block geom-pink">
+        <div class="chunk-header-left">
+          <div class="chunk-part-title" contenteditable="true">Part three · System &amp; Administration</div>
+          <div class="chunk-name" contenteditable="true">Shared Spreadsheet System &amp; Complexity Management</div>
+        </div>
+        <div class="chunk-header-num">3</div>
+      </div>
+
+      <!-- Trigger Prompt Bar -->
+      <div class="recall-prompt-bar">
+        <span class="cue-tag">ACTIVE RECALL CUE / 主动回忆提问</span>
+        <div class="cue-question" contenteditable="true">How did your project administration system work, and how did it specifically keep this complicated project organized?</div>
+      </div>
+
+      <!-- Theory vs Hook Grid -->
+      <div class="chunk-main-grid">
+        <div class="chunk-theory-col">
+          <div>
+            <div class="section-eyebrow">认知要点与原句萃取 / COGNITIVE CHUNKS</div>
+            <ul class="theory-points">
+              <li contenteditable="true"><strong>4 Core Administrative Pillars: </strong>Used shared spreadsheets to clearly document: (1) what had already been done, (2) what needed to happen next, (3) who was responsible for each task, and (4) deadlines.</li><li contenteditable="true"><strong>Single Source of Truth: </strong>Kept all stakeholders and volunteers informed in real time, preventing misunderstandings, delays, and task duplication.</li><li contenteditable="true"><strong>Mastering Project Complexity: </strong>Transformed a high-stress, multi-threaded exhibition into an organized and resilient workflow: &#x27;helped me keep a complicated project organized.&#x27;</li>
+            </ul>
+          </div>
+          <div style="font-size: 9.5pt; color: #7A766D; font-style: italic;" contenteditable="true">
+            * Tip: Practice delivering the final 2 sentences of the text aloud in English with confident body language.
+          </div>
+        </div>
+
+        <div class="chunk-hook-col">
+          <div class="hook-graphic-box">
+            <div class="graphic-cutout-arc"></div>
+            <div class="hook-content" style="padding-right: 28mm;">
+              <div class="section-eyebrow">记忆钩子与类比 / MNEMONIC & DUAL CODING</div>
+              <div class="hook-formula" contenteditable="true">“Done, Next, Owner, Deadlines: 4 Pillars of Administrative Clarity”</div>
+              <div class="hook-analogy" contenteditable="true">Like Air Traffic Control (ATC): dozens of moving flights stay on track because the radar board strictly broadcasts status, route, owner, and precise time slots.</div>
+            </div>
+          </div>
+          <div class="hook-keyword-pills">
+            <span class="kw-pill" contenteditable="true">#SharedSpreadsheets</span><span class="kw-pill" contenteditable="true">#DoneNextOwnerDeadline</span><span class="kw-pill" contenteditable="true">#ProjectAdministration</span><span class="kw-pill" contenteditable="true">#SingleSourceOfTruth</span><span class="kw-pill" contenteditable="true">#KeepOrganized</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Handwriting & Practice Canvas -->
+      <div class="chunk-practice-zone">
+        <div class="practice-header">
+          <div class="practice-title">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            实体手写自测与原语言口述演练区 (VERBAL & HANDWRITING BLANK)
+          </div>
+          <div style="font-size: 9pt; color: #8F8B80;">建议用笔默写或口头复述</div>
+        </div>
+        <div class="practice-prompt-text" contenteditable="true">
+          Verbal Recall Challenge: Write down the 4 columns of your shared spreadsheet and draft your 30-second STAR interview closing statement in original English:
+        </div>
+        <div class="note-grid-canvas" contenteditable="true">
+          <div class="note-grid-placeholder">Practice writing the 4 columns: [Done] [Next] [Owner] [Deadline]. Then write your closing takeaway: &#x27;This was where my project administration system became especially important...&#x27;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>MEMORIZATION HANDBOOK</div>
+      <div>SHEET 04 / CHUNK 03</div>
+    </div>
+  </div>
+        
+
+  
+  <!-- =========================================================
+       PAGE 5: FINAL SYNTHESIS & BLIND RECALL
+       ========================================================= -->
+  <div class="page" id="page-5">
+    <div class="page-header">
+      <div class="meta-tag" contenteditable="true">SYNTHESIS & BLIND RECALL</div>
+      <div class="meta-sub" contenteditable="true">FINAL MASTERY AUDIT · SHEET 05</div>
+    </div>
+
+    <div class="page-body">
+      <!-- Final Header Banner -->
+      <div class="final-hero">
+        <div>
+          <h2 contenteditable="true">闭环自测与总览速查 (MASTERY AUDIT)</h2>
+          <p contenteditable="true">合上手册后，能否用原语言脱口而出？完成以下无提示自测检查清单与对比矩阵。</p>
+        </div>
+        <div style="font-family: var(--font-display); font-size: 32pt; font-weight: 800; opacity: 0.3;">
+          ★ 100%
+        </div>
+      </div>
+
+      <!-- Matrix Comparison Table -->
+      <div class="matrix-section">
+        <div class="section-eyebrow">认知组块横向对比矩阵 / CHUNK MATRIX</div>
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="width: 22%;">组块维度 / Phase</th>
+              <th style="width: 28%;">核心目的 / Purpose</th>
+              <th style="width: 28%;">主导机制 / Mechanism</th>
+              <th style="width: 22%;">速记锚点 / Anchor</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+        <tr>
+          <td style="font-weight: 700;" contenteditable="true">Part 1: Pre-arrival &amp; Local</td>
+          <td contenteditable="true">Bridge artist vision with local community &amp; materials</td>
+          <td contenteditable="true">Pre-arrival logistics + neighborhood/veneer factory visits + dual recruitment</td>
+          <td contenteditable="true">Prep Ahead &amp; Local Roots</td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 700;" contenteditable="true">Part 2: Exhibition Delivery</td>
+          <td contenteditable="true">Deliver solo exhibition &amp; 7-day fair programming</td>
+          <td contenteditable="true">Synchronized 6 stakeholders + managed materials, staff, schedules for workshops</td>
+          <td contenteditable="true">6-Party Synchronization</td>
+        </tr>
+        
+        <tr>
+          <td style="font-weight: 700;" contenteditable="true">Part 3: Project Administration</td>
+          <td contenteditable="true">Eliminate communication silos &amp; control complexity</td>
+          <td contenteditable="true">Shared spreadsheets tracking Done, Next, Owner, and Deadlines</td>
+          <td contenteditable="true">4-Pillar Shared Spreadsheet</td>
+        </tr>
+        
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Blind Recall Checklist -->
+      <div class="blind-recall-section">
+        <div class="section-eyebrow">合书自测清单 / BLIND RETRIEVAL CHECKLIST</div>
+        <div class="checklist-items">
+          
+        <div class="checklist-row">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <span class="check-cue" contenteditable="true">1. Key Facts &amp; Setting: </span>
+            <span contenteditable="true">Can you immediately recite in English: Year (2025), Project (Louhang Art Hill), Residency Duration (one-month), Artist (Israeli artist Eti), Core Material (local veneer factory)?</span>
+          </div>
+        </div>
+        
+        <div class="checklist-row">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <span class="check-cue" contenteditable="true">2. Chronological Flow &amp; Core Role: </span>
+            <span contenteditable="true">Can you fluently say the key thesis sentence: &#x27;My role was really to connect the artist&#x27;s ideas and needs with the resources and people available locally&#x27;?</span>
+          </div>
+        </div>
+        
+        <div class="checklist-row">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <span class="check-cue" contenteditable="true">3. The 6 Stakeholders Checklist: </span>
+            <span contenteditable="true">Can you name all 6 parties in English without hesitation: (1) Artist, (2) Visual Designer, (3) Installation Staff, (4) Volunteers, (5) Organizer, (6) Culture &amp; Tourism Dept?</span>
+          </div>
+        </div>
+        
+        <div class="checklist-row">
+          <div class="check-box"></div>
+          <div class="check-content">
+            <span class="check-cue" contenteditable="true">4. Administration System Punchline: </span>
+            <span contenteditable="true">Can you recite the exact 4 spreadsheet items: &#x27;what had already been done, what needed to happen next, who was responsible for each task, and the deadlines&#x27;?</span>
+          </div>
+        </div>
+        
+        </div>
+
+        <div class="pitfall-box">
+          <strong>⚠️ 表达与避坑警示 (PITFALL ALERT)：</strong>
+          <span contenteditable="true">面试高频避坑 (Interview Tip): 不要将这段经历讲成普通的接机后勤！请牢牢抓住两个英文核心原句去表达：① &#x27;My role was really to connect the artist&#x27;s ideas and needs with the resources and people available locally&#x27;；② &#x27;This was where my project administration system became especially important: using shared spreadsheets to clearly document Done, Next, Owner, and Deadlines to keep a complicated project organized&#x27;。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <div>MEMORIZATION HANDBOOK</div>
+      <div>SHEET 05 / FINAL RETRIEVAL</div>
+    </div>
+  </div>
+    
+
+</body>
+</html>

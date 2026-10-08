@@ -1,0 +1,102 @@
+{
+  "title": "ETI ART RESIDENCY 2025",
+  "subtitle": "Louhang Art Hill Project · Artist Residency Coordination & Project Administration",
+  "topic_badge": "STAR CASE STUDY · 行为面试与项目管理 (原英文记忆)",
+  "archive_id": "RESIDENCY-ETI-2025",
+  "core_hook": "“Connect the artist's ideas and needs with local resources and people; anchor multi-stakeholder chaos with shared spreadsheet clarity.”",
+  "chunks": [
+    {
+      "part_tag": "Part one · Foundation & Local Connection",
+      "name": "Pre-arrival Logistics & Material Discovery",
+      "cue_label": "ACTIVE RECALL CUE / 主动回忆提问",
+      "overview_summary": "Pre-arrival logistics (needs, materials, housing, transport), neighborhood visits, and discovering key material at a local veneer factory while recruiting workshop participants.",
+      "recall_prompt": "What specific preparations did you make before Eti arrived, and how did you connect her artistic vision with local community materials and residents?",
+      "points": [
+        ["Pre-arrival Logistics: ", "Communicated about what she needed in advance; prepared materials and tools, booked accommodation based on preferences, and arranged airport-to-residency transport."],
+        ["Neighborhood Visits & Veneer Factory: ", "Accompanied her on neighborhood visits during the first few days; visited a local veneer factory where she found the main material for her work."],
+        ["Dual Recruitment for Collaborative Workshops: ", "Met local residents and invited them to participate, while recruiting additional participants via social media to bridge artist ideas with local people."]
+      ],
+      "formula": "“Prep Needs & Tools, Scout Veneer, Invite Residents”",
+      "analogy": "Like planting a tree: prepare the ground in advance (logistics), then help roots latch directly onto native soil (veneer factory & local community).",
+      "keywords": ["#LouhangArtHill2025", "#IsraeliArtistEti", "#LocalVeneerFactory", "#CollaborativeWorkshops", "#BridgeArtistNeeds"],
+      "practice_prompt": "Verbal Recall Challenge: Without looking above, write down the 4 pre-arrival logistical steps and the exact English sentence describing your core role:",
+      "tip": "* Tip: Cover the text above. Verbally recite Eti's name, the project, and the veneer factory in complete English sentences.",
+      "placeholder": "Write your verbal recall notes here: (1) Pre-arrival 4 tasks... (2) Veneer factory visit... (3) Core role sentence: 'My role was really to connect...'"
+    },
+    {
+      "part_tag": "Part two · Delivery & Coordination",
+      "name": "Solo Exhibition Delivery & Multi-Stakeholder Matrix",
+      "cue_label": "ACTIVE RECALL CUE / 主动回忆提问",
+      "overview_summary": "Delivered a solo exhibition as part of the art fair by synchronizing a 6-party stakeholder network and managing materials, staff, and schedules across 7 days.",
+      "recall_prompt": "Who were the 6 stakeholders you coordinated to deliver the solo exhibition, and how did you manage the workshops and interviews during the 7-day art fair?",
+      "points": [
+        ["6-Party Stakeholder Coordination: ", "To deliver the exhibition, coordinated with: (1) Artist, (2) Visual Designer, (3) Installation Staff, (4) Community Volunteers, (5) Art Fair Organizer, and (6) Local Culture & Tourism Dept."],
+        ["7-Day Art Fair Operations: ", "Managed several workshops and interviews during the seven-day art fair; coordinated materials, staff, and schedules for each workshop."],
+        ["Activity Promotion & Engagement: ", "Collected information about each activity for social promotion and participant recruitment, ensuring seamless audience engagement."]
+      ],
+      "formula": "“6 Parties Aligned, 7 Days Anchored, Every Workshop Synced”",
+      "analogy": "Like an orchestra conductor: the artist is the soloist, installation and design are the orchestra, culture/tourism sets the hall, and coordination keeps the tempo.",
+      "keywords": ["#SoloExhibition", "#6Stakeholders", "#SevenDayArtFair", "#WorkshopsAndInterviews", "#CultureAndTourism"],
+      "practice_prompt": "Verbal Recall Challenge: Draw the 6-stakeholder network from memory and list the 3 operational items coordinated for each workshop (m___, s___, s___):",
+      "tip": "* Tip: Recite all 6 stakeholders aloud in English without pause. Ensure smooth transitions between each role.",
+      "placeholder": "Sketch the 6 stakeholders network here: Artist / Visual Designer / Installation Staff / Community Volunteers / Art Fair Organizer / Culture & Tourism Dept..."
+    },
+    {
+      "part_tag": "Part three · System & Administration",
+      "name": "Shared Spreadsheet System & Complexity Management",
+      "cue_label": "ACTIVE RECALL CUE / 主动回忆提问",
+      "overview_summary": "Established a project administration system using shared spreadsheets tracking Done, Next, Owner, and Deadlines to maintain cross-functional alignment and order.",
+      "recall_prompt": "How did your project administration system work, and how did it specifically keep this complicated project organized?",
+      "points": [
+        ["4 Core Administrative Pillars: ", "Used shared spreadsheets to clearly document: (1) what had already been done, (2) what needed to happen next, (3) who was responsible for each task, and (4) deadlines."],
+        ["Single Source of Truth: ", "Kept all stakeholders and volunteers informed in real time, preventing misunderstandings, delays, and task duplication."],
+        ["Mastering Project Complexity: ", "Transformed a high-stress, multi-threaded exhibition into an organized and resilient workflow: 'helped me keep a complicated project organized.'"]
+      ],
+      "formula": "“Done, Next, Owner, Deadlines: 4 Pillars of Administrative Clarity”",
+      "analogy": "Like Air Traffic Control (ATC): dozens of moving flights stay on track because the radar board strictly broadcasts status, route, owner, and precise time slots.",
+      "keywords": ["#SharedSpreadsheets", "#DoneNextOwnerDeadline", "#ProjectAdministration", "#SingleSourceOfTruth", "#KeepOrganized"],
+      "practice_prompt": "Verbal Recall Challenge: Write down the 4 columns of your shared spreadsheet and draft your 30-second STAR interview closing statement in original English:",
+      "tip": "* Tip: Practice delivering the final 2 sentences of the text aloud in English with confident body language.",
+      "placeholder": "Practice writing the 4 columns: [Done] [Next] [Owner] [Deadline]. Then write your closing takeaway: 'This was where my project administration system became especially important...'"
+    }
+  ],
+  "matrix": [
+    {
+      "dimension": "Part 1: Pre-arrival & Local",
+      "purpose": "Bridge artist vision with local community & materials",
+      "mechanism": "Pre-arrival logistics + neighborhood/veneer factory visits + dual recruitment",
+      "anchor": "Prep Ahead & Local Roots"
+    },
+    {
+      "dimension": "Part 2: Exhibition Delivery",
+      "purpose": "Deliver solo exhibition & 7-day fair programming",
+      "mechanism": "Synchronized 6 stakeholders + managed materials, staff, schedules for workshops",
+      "anchor": "6-Party Synchronization"
+    },
+    {
+      "dimension": "Part 3: Project Administration",
+      "purpose": "Eliminate communication silos & control complexity",
+      "mechanism": "Shared spreadsheets tracking Done, Next, Owner, and Deadlines",
+      "anchor": "4-Pillar Shared Spreadsheet"
+    }
+  ],
+  "blind_checklist": [
+    {
+      "cue": "1. Key Facts & Setting: ",
+      "question": "Can you immediately recite in English: Year (2025), Project (Louhang Art Hill), Residency Duration (one-month), Artist (Israeli artist Eti), Core Material (local veneer factory)?"
+    },
+    {
+      "cue": "2. Chronological Flow & Core Role: ",
+      "question": "Can you fluently say the key thesis sentence: 'My role was really to connect the artist's ideas and needs with the resources and people available locally'?"
+    },
+    {
+      "cue": "3. The 6 Stakeholders Checklist: ",
+      "question": "Can you name all 6 parties in English without hesitation: (1) Artist, (2) Visual Designer, (3) Installation Staff, (4) Volunteers, (5) Organizer, (6) Culture & Tourism Dept?"
+    },
+    {
+      "cue": "4. Administration System Punchline: ",
+      "question": "Can you recite the exact 4 spreadsheet items: 'what had already been done, what needed to happen next, who was responsible for each task, and the deadlines'?"
+    }
+  ],
+  "pitfall": "面试高频避坑 (Interview Tip): 不要将这段经历讲成普通的接机后勤！请牢牢抓住两个英文核心原句去表达：① 'My role was really to connect the artist's ideas and needs with the resources and people available locally'；② 'This was where my project administration system became especially important: using shared spreadsheets to clearly document Done, Next, Owner, and Deadlines to keep a complicated project organized'。"
+}
