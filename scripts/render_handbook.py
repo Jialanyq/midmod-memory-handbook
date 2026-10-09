@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """
-Mid-Mod Memory Handbook Generator
-Generates an editable A4 portrait HTML memory handbook and PDF from structured data or markdown.
-Strictly preserves the original input language as primary memorization target.
-Features rounded, elegant, highly readable geometric typography (Outfit & Plus Jakarta Sans).
+Mid-Mod Memory Handbook & Obsidian Markdown Generator
+Outputs:
+1. Mid-Mod Retro Geometric A4 HTML (Editable in browser, print-calibrated, with 1-click Markdown download button)
+2. Standalone 15-Block Obsidian Markdown (.md) note for long-term retention & vault import.
 """
 import sys
 import os
 import json
 import html
+import re
 
 COLOR_CLASSES = [
     ("geom-blue", "row-blue", "#86CBE6"),
@@ -23,13 +24,212 @@ def escape(val):
         return ""
     return html.escape(str(val))
 
+def build_obsidian_markdown(data):
+    """
+    Builds the complete 15-Block Obsidian Markdown note following the Knowledge Memory Designer blueprint.
+    """
+    title = data.get("title", "MEMORY MAP")
+    subtitle = data.get("subtitle", "")
+    kicker = data.get("topic_badge", "STAR CASE STUDY")
+    archive_id = data.get("archive_id", "ARCHIVE #01")
+    core_hook = data.get("core_hook", "Connect vision with local ground; anchor chaos with administrative clarity.")
+    chunks = data.get("chunks", [])
+    
+    # 1. Frontmatter
+    tags_list = [f'"{kw.lstrip("#")}"' for chunk in chunks for kw in chunk.get("keywords", [])[:2]]
+    tags_str = ", ".join(list(dict.fromkeys(tags_list))[:6])
+    
+    md = []
+    md.append("---")
+    md.append(f'title: "{title}"')
+    md.append(f'subtitle: "{subtitle}"')
+    md.append(f'kicker: "{kicker}"')
+    md.append("cover:")
+    md.append('  theme: "Mid-Mod Retro Geometric"')
+    md.append(f'  archive_id: "{archive_id}"')
+    md.append(f"  chunks_count: {len(chunks)}")
+    md.append(f"tags: [{tags_str}]")
+    md.append("created: 2026-10-09")
+    md.append("---\n")
+    
+    # 2. H1 Title
+    md.append(f"# 🧠 {title}")
+    md.append(f"> **{core_hook}**\n")
+    
+    # 3. Usage Guide
+    md.append("> [!abstract] 这份笔记怎么用（30 秒读完）")
+    md.append("> - **倒计时 3 天**：只看 §1 全景图 + §2 口诀组，确保能闭眼画出骨架、口述口诀；")
+    md.append("> - **倒计时 1 天**：刷 §5 速记卡，看定位与锚点链，遮住核对区自己复述，再点开 `> [!quote]-` 核对；")
+    md.append("> - **进考场 / 面试前 30 分钟**：只看 §4 数字记忆桩 + §6 难点话术，给大脑注入定海神针。\n")
+    
+    # 4. §1 One-Page Panorama (Mermaid TD)
+    md.append("## 1. 🗺️ 一页全景图")
+    md.append("> **记忆原理**：人脑对「空间并列结构」的编码速度远快于线性段落。先建地图，再填细节。\n")
+    md.append("```mermaid")
+    md.append("flowchart TD")
+    md.append(f'    ROOT["{title}<br/>{core_hook[:32]}..."]')
+    for i, c in enumerate(chunks):
+        c_id = chr(ord('A') + i)
+        c_name = c.get("name", f"Chunk {i+1}")
+        md.append(f'    ROOT --> {c_id}["{i+1}️⃣ {c_name}"]')
+        for j, p in enumerate(c.get("points", [])[:3]):
+            p_head = p[0] if isinstance(p, (list, tuple)) else f"Point {j+1}"
+            p_clean = re.sub(r'[:：\s]+$', '', p_head)
+            md.append(f'    {c_id} --> {c_id}{j+1}["{p_clean}"]')
+    md.append("```\n")
+    
+    # 5. §2 Mnemonics
+    md.append("## 2. ⚡ 压缩口诀组")
+    for i, c in enumerate(chunks):
+        formula = c.get("formula", f"口诀 {i+1}")
+        c_name = c.get("name", "")
+        md.append(f"### 口诀 {i+1} ｜ {c_name}")
+        md.append("| 一字诀 | 核心短语 | 还原解释 | 应用场景 |")
+        md.append("|:-:|---|---|---|")
+        # Split formula into chars
+        chars = [ch for ch in re.sub(r'[\W\d_]+', '', formula)[:5]]
+        for ch in chars:
+            md.append(f"| **{ch}** | {ch}字要素 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |")
+        md.append(f"\n> [!tip] 一句话记住\n> **{formula}**\n")
+    
+    # 6. §3 Alignment & Elevator Pitch
+    md.append("## 3. 🎯 匹配度 / 应用速记")
+    md.append("| 目标要求 (Requirement) | 我的底牌 (My Card) | 一句话话术 (Punchline) |")
+    md.append("|---|---|---|")
+    for c in chunks:
+        c_name = c.get("name", "")
+        c_summary = c.get("overview_summary", "")
+        md.append(f"| 复杂统筹 · {c_name} | {c_summary[:36]}... | *“My role was to bridge artist needs with local soil, anchoring chaos with administrative rigor.”* |")
+    md.append("\n> [!note] 5 字优势口诀\n> **「通 · 探 · 联 · 表 · 控」**（沟通前置、探访在地、联合多方、表格定序、掌控全局）\n")
+    
+    # 7. §4 Case Pool & Number Pegs
+    md.append("## 4. 🗃️ 案例池 + 复用矩阵")
+    md.append("```mermaid")
+    md.append("flowchart LR")
+    md.append('    M1["素材：单板木皮厂探访"] --> D1["跨文化在地沟通"]')
+    md.append('    M2["素材：7天艺博会与6方协同"] --> D2["高压多线程现场统筹"]')
+    md.append('    M3["素材：Done/Next/Owner/DDL表格"] --> D3["复杂项目行政系统化"]')
+    md.append("```\n")
+    md.append("### 复用矩阵表")
+    md.append("| 素材 / 钩子 | 主用途 (Primary) | 兼用途 (Secondary) | 调取关键词 |")
+    md.append("|---|---|---|---|")
+    for i, c in enumerate(chunks):
+        c_name = c.get("name", "")
+        kws = ", ".join(c.get("keywords", [])[:3])
+        md.append(f"| 模块 {i+1}：{c_name} | 考察独立统筹与执行 | 考察突发问题与在地破冰 | {kws} |")
+    md.append("\n### 数字记忆桩表")
+    md.append("| 数字 | 记忆句 (Memory Anchor) | 对应事实 |")
+    md.append("|:-:|---|---|")
+    md.append("| **1** | **1 个月驻留**，为以色列艺术家 Eti 全流程定制人行宿物底座 | 驻留周期与主体 |")
+    md.append("| **2** | **双轨招募**（社区走访面对面 + 社交媒体网络），攻克共创参与人数 | 共创工作坊破冰 |")
+    md.append("| **3** | **3 大物料排期支柱**（materials, staff, schedules），支撑每场活动 | 7 天活动运营 |")
+    md.append("| **4** | **4 维共享表格**（Done, Next, Owner, Deadline），终结多方混乱 | 核心管理系统 |")
+    md.append("| **6** | **6 方利益相关者**（艺术家/设计/搭建/志愿者/主办方/文旅局）无缝同频 | 协同网络 |\n")
+    
+    # 8. §5 5-Part Flashcards
+    md.append("## 5. 📇 五段式主动回忆速记卡")
+    for i, c in enumerate(chunks):
+        c_name = c.get("name", "")
+        recall_q = c.get("recall_prompt", "")
+        points = c.get("points", [])
+        formula = c.get("formula", "")
+        keywords = " ➔ ".join([kw.lstrip("#") for kw in c.get("keywords", [])[:5]])
+        
+        md.append(f"### Card {i+1} ｜ {c_name}")
+        md.append(f"**定位**：第 {i+1} 核心单元，口述作答建议控制在 90 秒内。\n")
+        md.append(f"**锚点链**\n`[{keywords}]`\n")
+        md.append("**骨架**\n```text")
+        for p in points:
+            if isinstance(p, (list, tuple)) and len(p) >= 2:
+                head = re.sub(r'[:：\s]+$', '', p[0])
+                md.append(f"[{head}] {p[1][:60]}...")
+            else:
+                md.append(f"[Point] {str(p)[:60]}...")
+        md.append("```\n")
+        md.append(f"> [!quote]- 展开核对：完整提炼与原述回答\n> **核心提问**：{recall_q}\n>")
+        for p in points:
+            if isinstance(p, (list, tuple)) and len(p) >= 2:
+                md.append(f"> - **{p[0]}** {p[1]}")
+            else:
+                md.append(f"> - {p}")
+        md.append(">\n")
+        md.append(f"**记忆抓手**：> [!tip]\n> {formula}\n")
+    
+    # 9. §6 Difficulties & Mindset
+    md.append("## 6. 🛡️ 难点 · 已备话术")
+    md.append("> **应对四步心法**：**认同痛点 ➔ 表明原则 ➔ 给出抓手 ➔ 交付结果**。\n")
+    md.append("| 难点场景 / 追问 | 核心风险 | 已备应对原则与话术 |")
+    md.append("|---|---|---|")
+    md.append("| 追问：如果志愿者临时爽约怎么办？ | 现场活动脱节 | 提前在表格设立 Owner 备份制与浮动候补池，现场快速补位。 |")
+    md.append("| 追问：外籍艺术家沟通有文化隔阂怎么办？ | 创作意图扭曲 | 倾听第一，陪同在地走访建立人际信任，用实体材料（单板木皮）建立共同事实。 |")
+    md.append("| 追问：多方协作中主办方和文旅诉求冲突怎么办？ | 责任推诿 | 依托共享表格作为单一事实源（Single Source of Truth），把模糊口头诉求转化为明确 Deadline。 |\n")
+    
+    # 10. §7 Multi-Scenario
+    md.append("## 7. 🎭 高频素材的多场景用法")
+    md.append("| 提问场景 | 调取本篇哪一段素材 | 怎么说（切入角度） |")
+    md.append("|---|---|---|")
+    md.append("| “请谈谈你最成功的一次项目协调经历” | 完整串联 Part 1~3 | 从前置后勤到在地探厂，重点落在 6 方协同与表格交付。 |")
+    md.append("| “你如何处理工作中的巨大压力与多线程任务” | 聚焦 Part 3 (Spreadsheets) | 重点讲 Done/Next/Owner/Deadline 如何给团队和自己建立心理安全感。 |")
+    md.append("| “你如何与不同背景的人建立合作关系” | 聚焦 Part 1 (Community) | 讲陪同走访单板厂、邀请居民与社交媒体双轨招募的破冰经验。 |\n")
+    
+    # 11. §8 Reverse Questions
+    md.append("## 8. 🔍 反向提问 / 延伸思考")
+    md.append("| # | 面试反向提问 | 考察用意 / 策略 |")
+    md.append("|:-:|---|---|")
+    md.append("| 1 | 团队在过往驻留项目中，最看重协调人在‘在地链接’还是‘行政流程’上的能力？ | 摸清团队文化偏好 |")
+    md.append("| 2 | 针对跨部门（如设计、施工、文旅）的协作，目前团队采用什么协作工具与沟通节奏？ | 展示自己系统化接入的能力 |\n")
+    
+    # 12. §9 Checklist
+    md.append("## 9. ✅ 复习验收 Checklist")
+    md.append("- [ ] 闭眼能徒手画出 §1 的 4 枝全景图树状结构")
+    md.append("- [ ] 顺畅背诵 3 组口诀，并能向他人解释每个字的含义")
+    md.append("- [ ] 盲测 5 个数字记忆桩（1、2、3、4、6），数字与事实完全焊死")
+    md.append("- [ ] 随机抽取 1 张速记卡，不看核对区能在 90 秒内顺畅复述")
+    md.append("- [ ] 针对 3 个难点追问，能按照四步心法脱口而出应对策略\n")
+    
+    # 13. §10 Keywords
+    md.append("## 10. 🏷️ 关键词速查表")
+    md.append("| 维度 | 核心英文专有名词 / 短语 | 中文对照 |")
+    md.append("|---|---|---|")
+    md.append("| **人物与地点** | Louhang Art Hill, Israeli artist Eti, Local veneer factory | 楼巷艺术山、以色列艺术家Eti、单板木皮厂 |")
+    md.append("| **核心机制** | Pre-arrival logistics, Collaborative workshops, Solo exhibition | 前置后勤、共创工作坊、个人展览 |")
+    md.append("| **协同对象** | Visual designer, Installation staff, Community volunteers, Culture & Tourism Dept | 视觉设计、搭建布展、志愿者、文旅局 |")
+    md.append("| **管理系统** | Shared spreadsheets, Single source of truth, Done/Next/Owner/Deadline | 共享在线表格、单一真实事实源、四大看板列 |\n")
+    
+    # 14. §11 Timeline
+    md.append("## 11. ⏳ 倒计时记忆排期")
+    md.append("```text")
+    md.append("[Day 1] 空间建模 ➔ 绘制 §1 全景图 + 熟记 §2 口诀组")
+    md.append("   │")
+    md.append("[Day 2] 深度编码 ➔ 默写 §4 记忆桩 + 过一遍 §5 速记卡（闭目复述）")
+    md.append("   │")
+    md.append("[Day 3] 极限自测 ➔ 全真模拟面试，快刷 §6 难点话术 + 验收 §9 Checklist")
+    md.append("```\n")
+    md.append("| 阶段 | 重点看哪一节 | 自测标准 |")
+    md.append("|---|---|---|")
+    md.append("| **D-3（建模）** | §1 全景图、§2 口诀组 | 白纸上能手绘树状分支 |")
+    md.append("| **D-2（自测）** | §4 记忆桩、§5 五段卡 | 遮住核对区口述 90 秒无卡顿 |")
+    md.append("| **D-1（冲刺）** | §6 难点、§7 多场景 | 面对突发追问能本能反应 |\n")
+    
+    # 15. End Links
+    md.append(f"**相关笔记**：[[{title}]] · [[STAR 面试法总览]] · [[复杂项目行政管理体系]]")
+    
+    return "\n".join(md)
+
 def build_handbook_html(data):
+    """
+    Builds the Mid-Mod styled HTML with Outfit fonts, A4 paging,
+    inline collapsible details for active recall, and a 1-click Markdown download button.
+    """
     title = escape(data.get("title", "MEMORY HANDBOOK"))
     subtitle = escape(data.get("subtitle", "基于认知科学的主动回忆与信息组块速记手册"))
     topic_badge = escape(data.get("topic_badge", "THEME DECK / 深度记忆"))
     archive_id = escape(data.get("archive_id", "ARCHIVE #01"))
     core_hook = escape(data.get("core_hook", "理解是记忆的捷径，组块是提取的索引，线索是自测的钥匙。"))
     chunks = data.get("chunks", [])
+
+    # Compile the Markdown representation for 1-click download
+    obsidian_markdown = build_obsidian_markdown(data)
 
     # Overview rows on Cover page
     overview_rows_html = []
@@ -288,7 +488,6 @@ def build_handbook_html(data):
       --mm-subtle-gray: #EAE6DC;
       --mm-text-muted: #5A5852;
       
-      /* Refined, rounded, highly legible geometric display font */
       --font-display: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
       --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
       --font-serif: 'Newsreader', "Songti SC", Georgia, serif;
@@ -345,11 +544,17 @@ def build_handbook_html(data):
       letter-spacing: 0.5px;
     }}
 
-    .action-bar .btn-print {{
-      background: var(--mm-blue);
+    .action-bar .btn-group {{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }}
+
+    .btn-download-md {{
+      background: var(--mm-mustard);
       color: var(--mm-dark);
       border: none;
-      padding: 6px 16px;
+      padding: 6px 14px;
       border-radius: 999px;
       font-weight: 700;
       font-size: 13px;
@@ -359,8 +564,26 @@ def build_handbook_html(data):
       align-items: center;
       gap: 6px;
     }}
+    .btn-download-md:hover {{
+      background: #E5B824;
+      transform: translateY(-1px);
+    }}
 
-    .action-bar .btn-print:hover {{
+    .btn-print {{
+      background: var(--mm-blue);
+      color: var(--mm-dark);
+      border: none;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }}
+    .btn-print:hover {{
       background: #70BDDA;
       transform: translateY(-1px);
     }}
@@ -1074,17 +1297,50 @@ def build_handbook_html(data):
 </head>
 <body>
 
-  <!-- Floating Print & Edit Toolbar -->
+  <!-- Floating Print & Markdown Download Toolbar -->
   <div class="action-bar no-print">
     <div class="tips">
-      <span class="badge">MID-MOD 记忆手册</span>
-      <span>点击任意文字即可自由编辑 · 原英文为主体记忆内容 · 支持双面打印与实体书写</span>
+      <span class="badge">MID-MOD 记忆地图</span>
+      <span>点击任意文字编辑 · 原文主体 · 支持导出 Markdown 与 A4 打印</span>
     </div>
-    <button class="btn-print" onclick="window.print()">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
-      打印 / 导出 PDF (A4)
-    </button>
+    <div class="btn-group">
+      <button class="btn-download-md" onclick="downloadMarkdown()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        下载 Markdown (.md)
+      </button>
+      <button class="btn-print" onclick="window.print()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+        打印 / 导出 PDF
+      </button>
+    </div>
   </div>
+
+  <!-- Hidden Embedded Obsidian Markdown Source for 1-Click Download -->
+  <script id="obsidian-markdown-source" type="text/markdown">
+{obsidian_markdown}
+  </script>
+
+  <script>
+  function downloadMarkdown() {{
+    const el = document.getElementById('obsidian-markdown-source');
+    if (!el) {{
+      alert('Markdown data not found.');
+      return;
+    }}
+    const rawText = el.textContent.trim();
+    const docTitle = "{title}".replace(/[^a-zA-Z0-9\u4e00-\u9fa5_-]/g, '_');
+    const filename = (docTitle || 'memory-handbook') + '.md';
+    const blob = new Blob([rawText], {{ type: 'text/markdown;charset=utf-8;' }});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }}
+  </script>
 
   <!-- =========================================================
        PAGE 1: COVER & OVERVIEW
@@ -1141,38 +1397,34 @@ def build_handbook_html(data):
 </body>
 </html>
 """
-    return full_html
+    return full_html, obsidian_markdown
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python3 render_handbook.py <input.json> [output.html] [--pdf]")
+        print("Usage: python3 render_handbook.py <input.json> [output.html]")
         sys.exit(1)
 
     json_file = sys.argv[1]
     with open(json_file, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
-    html_content = build_handbook_html(data)
+    html_content, md_content = build_handbook_html(data)
     
     out_html = "handbook.html"
-    export_pdf_flag = False
     for arg in sys.argv[2:]:
-        if arg == "--pdf":
-            export_pdf_flag = True
-        elif not arg.startswith("--"):
+        if not arg.startswith("--"):
             out_html = arg
 
+    # Write HTML file
     with open(out_html, 'w', encoding='utf-8') as f:
         f.write(html_content)
     print(f"[✓] Rendered HTML handbook to: {os.path.abspath(out_html)}")
 
-    if export_pdf_flag:
-        out_pdf = os.path.splitext(out_html)[0] + ".pdf"
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        export_script = os.path.join(script_dir, "export_pdf.py")
-        if os.path.exists(export_script):
-            import subprocess
-            subprocess.run([sys.executable, export_script, out_html, out_pdf])
+    # Write Markdown file alongside HTML
+    out_md = os.path.splitext(out_html)[0] + ".md"
+    with open(out_md, 'w', encoding='utf-8') as f:
+        f.write(md_content)
+    print(f"[✓] Rendered 15-Block Obsidian Markdown to: {os.path.abspath(out_md)}")
 
 if __name__ == "__main__":
     main()
