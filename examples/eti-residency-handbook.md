@@ -3,7 +3,7 @@ title: "ETI ART RESIDENCY 2025"
 subtitle: "Louhang Art Hill Project · Artist Residency Coordination & Project Administration"
 kicker: "STAR CASE STUDY · 行为面试与项目管理 (原英文记忆)"
 cover:
-  theme: "Mid-Mod Retro Geometric"
+  theme: "Mid-Mod Cognitive Color Palette"
   archive_id: "RESIDENCY-ETI-2025"
   chunks_count: 3
 tags: ["LouhangArtHill2025", "IsraeliArtistEti", "SoloExhibition", "6Stakeholders", "SharedSpreadsheets", "DoneNextOwnerDeadline"]
@@ -23,7 +23,7 @@ created: 2026-10-09
 
 ```mermaid
 flowchart TD
-    ROOT["ETI ART RESIDENCY 2025<br/>“Connect the artist's ideas and ..."]
+    ROOT["ETI ART RESIDENCY 2025<br/>“Connect the artist's ideas and need..."]
     ROOT --> A["1️⃣ Pre-arrival Logistics & Material Discovery"]
     A --> A1["Pre-arrival Logistics"]
     A --> A2["Neighborhood Visits & Veneer Factory"]
@@ -42,11 +42,11 @@ flowchart TD
 ### 口诀 1 ｜ Pre-arrival Logistics & Material Discovery
 | 一字诀 | 核心短语 | 还原解释 | 应用场景 |
 |:-:|---|---|---|
-| **P** | P字要素 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
-| **r** | r字要素 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
-| **e** | e字要素 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
-| **p** | p字要素 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
-| **N** | N字要素 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
+| **P** | P字核心 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
+| **r** | r字核心 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
+| **e** | e字核心 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
+| **p** | p字核心 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
+| **N** | N字核心 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
 
 > [!tip] 一句话记住
 > **“Prep Needs & Tools, Scout Veneer, Invite Residents”**
@@ -54,11 +54,11 @@ flowchart TD
 ### 口诀 2 ｜ Solo Exhibition Delivery & Multi-Stakeholder Matrix
 | 一字诀 | 核心短语 | 还原解释 | 应用场景 |
 |:-:|---|---|---|
-| **P** | P字要素 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
-| **a** | a字要素 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
-| **r** | r字要素 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
-| **t** | t字要素 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
-| **i** | i字要素 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
+| **P** | P字核心 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
+| **a** | a字核心 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
+| **r** | r字核心 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
+| **t** | t字核心 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
+| **i** | i字核心 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
 
 > [!tip] 一句话记住
 > **“6 Parties Aligned, 7 Days Anchored, Every Workshop Synced”**
@@ -66,11 +66,11 @@ flowchart TD
 ### 口诀 3 ｜ Shared Spreadsheet System & Complexity Management
 | 一字诀 | 核心短语 | 还原解释 | 应用场景 |
 |:-:|---|---|---|
-| **D** | D字要素 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
-| **o** | o字要素 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
-| **n** | n字要素 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
-| **e** | e字要素 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
-| **N** | N字要素 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
+| **D** | D字核心 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
+| **o** | o字核心 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
+| **n** | n字核心 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
+| **e** | e字核心 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
+| **N** | N字核心 | 紧扣该阶段核心动作与交付物 | 回答该阶段第一问 |
 
 > [!tip] 一句话记住
 > **“Done, Next, Owner, Deadlines: 4 Pillars of Administrative Clarity”**
@@ -78,9 +78,9 @@ flowchart TD
 ## 3. 🎯 匹配度 / 应用速记
 | 目标要求 (Requirement) | 我的底牌 (My Card) | 一句话话术 (Punchline) |
 |---|---|---|
-| 复杂统筹 · Pre-arrival Logistics & Material Discovery | Pre-arrival logistics (needs, materi... | *“My role was to bridge artist needs with local soil, anchoring chaos with administrative rigor.”* |
-| 复杂统筹 · Solo Exhibition Delivery & Multi-Stakeholder Matrix | Delivered a solo exhibition as part ... | *“My role was to bridge artist needs with local soil, anchoring chaos with administrative rigor.”* |
-| 复杂统筹 · Shared Spreadsheet System & Complexity Management | Established a project administration... | *“My role was to bridge artist needs with local soil, anchoring chaos with administrative rigor.”* |
+| 复杂统筹 · Pre-arrival Logistics & Material Discovery | Pre-arrival logistics (needs, materials,... | *“My role was to bridge artist needs with local soil, anchoring chaos with administrative rigor.”* |
+| 复杂统筹 · Solo Exhibition Delivery & Multi-Stakeholder Matrix | Delivered a solo exhibition as part of t... | *“My role was to bridge artist needs with local soil, anchoring chaos with administrative rigor.”* |
+| 复杂统筹 · Shared Spreadsheet System & Complexity Management | Established a project administration sys... | *“My role was to bridge artist needs with local soil, anchoring chaos with administrative rigor.”* |
 
 > [!note] 5 字优势口诀
 > **「通 · 探 · 联 · 表 · 控」**（沟通前置、探访在地、联合多方、表格定序、掌控全局）

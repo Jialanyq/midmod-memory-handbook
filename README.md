@@ -28,15 +28,20 @@ With one prompt or CLI command, it transforms raw study notes, personal case stu
 * **Zero Unwanted Translation**: Preserves the user's input language with 100% fidelity. If notes are in English, the core points, key collocations, and active recall cues stay in **authentic original English**.
 * **Engineered for Verbatim Fluency**: Ensures learners memorize exact idiomatic phrasing, action verbs, and terminology needed for job interviews, English presentations, and academic defenses.
 
-### 3. 🎨 Authentic Mid-Mod Aesthetic & Rounded Typography
-* **Retro Bauhaus Palette**: Mustard Gold (`#D8AA28`), Vintage Olive (`#989D34`), Sky Blue (`#86CBE6`), Coral Rose (`#F5A8B8`), Terracotta (`#A43926`), and Warm Cream Paper (`#FAF7F0`).
-* **Rounded, High-Legibility Typography**: Powered by Google Fonts **`Outfit`** and **`Plus Jakarta Sans`**—circular geometric curves, natural letter casing, open counters, and zero clipping or artificial stretching.
-* **Geometric Visual Motifs**: Precision semicircle cutouts, corner triangles, bold oversized numerals (`1`, `2`, `3`), and 3-band panorama overviews.
+### 3. 🎨 Cognitive-Memory Color Palette & Rounded Typography
+* **Evidence-Based Color Psychology**: Eliminates visual fatigue and glare with Soft Parchment (`#FAF8F5`) and Deep Slate Ink (`#181C22`), paired with functional stage tones:
+  * **Phase 1 · Serene Azure** (`#EBF2F7` / `#2B5773`): Promotes calm focus & initial information ingestion.
+  * **Phase 2 · Sage Forest Green** (`#EEF4EF` / `#385E40`): Enhances logical endurance & procedural synthesis.
+  * **Phase 3 · Warm Terracotta Sienna** (`#F9EFEB` / `#8F422F`): Stimulates alertness & long-term mnemonic anchoring.
+  * **Honey Amber Accents** (`#D49826`): Directs visual gaze to critical memory hooks.
+* **Content-First Visual Rebalancing**: Downweights decorative numbers (`1`, `2`, `3`) into refined, compact capsule badges and subtle watermark numerals—allocating **over 90% of layout width** directly to memorization content (bold verb chains, causal hooks, and clear mental models).
+* **High-Legibility Rounded Typography**: Powered by Google Fonts **`Outfit`** and **`Plus Jakarta Sans`**—warm geometric curves, generous line-heights, open counters, and zero clipping or artificial stretching.
 
-### 4. 🖨️ Multi-Device Responsive & 1-Click Vector A4 Print
+### 4. 🖨️ Dual-Mode Architecture: Interactive HTML & 1-Click Markdown (.md)
 * **Zero-Dependency Clean HTML5**: Lightweight, lightning-fast, and natively responsive across smartphones, tablets, and desktop displays.
-* **WYSIWYG In-Browser Editing**: Every heading and paragraph supports native `contenteditable`—click any text in your browser to tweak your notes instantly.
-* **Precision Vector PDF Printing**: Calibrated with exact `@page { size: A4 portrait; margin: 0; }` styles. Simply hit **"🖨️ Print / Export PDF"** (or `Cmd + P` / `Ctrl + P`) in any browser to get a seamless, beautifully paginated A4 PDF.
+* **1-Click "⬇️ Download Markdown (.md)"**: Instantly export a complete 15-block Obsidian-compatible Markdown note with Mermaid diagrams, one-character formulas, case matrices, and collapsible retrieval quotes (`> [!quote]-`).
+* **WYSIWYG In-Browser Editing**: Every heading and paragraph supports native `contenteditable`—click any text in your browser to tweak your notes on the fly.
+* **Precision Vector PDF Printing**: Calibrated with exact `@page { size: A4 portrait; margin: 0; }` styles. Hit **"🖨️ Print / Export PDF"** (or `Cmd + P` / `Ctrl + P`) in any browser for a flawless vector PDF.
 
 ---
 
